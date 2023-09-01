@@ -61,3 +61,13 @@ class Ingredient:
 
     def __repr__(self) -> str:
         return f"Ingredient('{self.name}')"
+
+
+ing1 = Ingredient("Ingrediente 01")
+ing2 = Ingredient('bacon')
+
+# print(ing1)
+# print('hash', ing1.__hash__())
+# print(ing1.__eq__(ing1))
+# print(ing1.__repr__())
+print(ing2.restrictions)
