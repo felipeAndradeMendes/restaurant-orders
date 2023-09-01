@@ -17,7 +17,7 @@ class MenuData:
         self.__dish_names = {}
 
         print('SOURCE PATH:', source_path)
-        with open('../' + source_path, "r") as file:
+        with open(source_path, "r") as file:
             menu_database = csv.DictReader(file, delimiter=",")
             data = menu_database
             # como retornar todas as linhas, sem pular a primeira?
