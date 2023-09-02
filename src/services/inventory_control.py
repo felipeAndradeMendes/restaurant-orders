@@ -1,8 +1,11 @@
 from csv import DictReader
 from typing import Dict
 
-from src.models.dish import Recipe
-from src.models.ingredient import Ingredient
+# from src.models.dish import Recipe
+# from src.models.ingredient import Ingredient
+
+from models.dish import Recipe
+from models.ingredient import Ingredient
 
 BASE_INVENTORY = "data/inventory_base_data.csv"
 

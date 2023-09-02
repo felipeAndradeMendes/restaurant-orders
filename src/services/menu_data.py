@@ -16,7 +16,7 @@ class MenuData:
         self.dishes = set()
         self.__dish_names = {}
 
-        print('SOURCE PATH:', source_path)
+        # print("SOURCE PATH:", source_path)
         with open(source_path, "r") as file:
             menu_database = csv.DictReader(file, delimiter=",")
             data = menu_database
@@ -39,10 +39,10 @@ class MenuData:
                 self.dishes.add(self.__dish_names[name])
 
 
-# print(get_dishes_from_csv("../../data/menu_base_data.csv"))
-# test_menu = MenuData("../../data/menu_base_data.csv")
-# print(test_menu.dishes.__eq__())
-# test_menu = MenuData("tests/mocks/menu_base_data.csv")
+path1 = "../../tests/mocks/menu_base_data.csv"
 
+if __name__ == "__main__":
+    # print(vars(MenuData(path1).dishes))
+    menu1 = MenuData(path1)
 
-# print(Dish("Prato 01", 12.90))
+    print(menu1.dishes)
