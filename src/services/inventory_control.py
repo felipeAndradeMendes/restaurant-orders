@@ -4,6 +4,7 @@ from typing import Dict
 # from src.models.dish import Recipe
 # from src.models.ingredient import Ingredient
 
+# usar sem testes
 from models.dish import Recipe
 from models.ingredient import Ingredient
 
@@ -15,7 +16,9 @@ Inventory = Dict[Ingredient, int]
 def read_csv_inventory(inventory_file_path=BASE_INVENTORY) -> Inventory:
     inventory = dict()
 
+    # with open('../' + inventory_file_path, encoding="utf-8") as file:
     with open(inventory_file_path, encoding="utf-8") as file:
+
         for row in DictReader(file):
             ingredient = Ingredient(row["ingredient"])
             inventory[ingredient] = int(row["initial_amount"])

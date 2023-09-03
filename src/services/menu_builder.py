@@ -1,13 +1,19 @@
 from typing import Dict, List
 
+# Original
 from services.inventory_control import InventoryMapping
 from services.menu_data import MenuData
 
-from models.ingredient import Ingredient
+# from src.services.inventory_control import InventoryMapping
+# from src.services.menu_data import MenuData
 
-# DATA_PATH = "data/menu_base_data.csv"
-# INVENTORY_PATH = "data/inventory_base_data.csv"
+# from models.ingredient import Ingredient
 
+# usar com testes (ver se original estava assim mesmo)
+# DATA_PATH = "../data/menu_base_data.csv"
+# INVENTORY_PATH = "../data/inventory_base_data.csv"
+
+#  usar sem testes
 DATA_PATH = "../../data/menu_base_data.csv"
 INVENTORY_PATH = "../../data/inventory_base_data.csv"
 
@@ -35,27 +41,38 @@ class MenuBuilder:
 
         for item in self.menu_data.dishes:
             print("GET RESTRICITONS:", item.get_restrictions())
+            # print('ITEM RESTRICTIONS:', Ingredient(restriction).restrictions)
             print("RESTRICITONS:", restriction)
 
             # has_restriction = False
 
-            # print('INFREADIENT RESTRICTION:', Ingredient(restriction).restrictions)
-            # if Ingredient(restriction) == item.get_restrictions():
-            #     print("diabo!!!!")
+            if (
+                restriction not in item.get_restrictions()
+                or restriction is None
+            ):
+                # print(
+                #     "RESULTADO DE COMPARAÇÃO:",
+                #     Ingredient(restriction).restrictions
+                #     == item.get_restrictions(),
+                # )
+                # print(f"adicionando item {item} ao result")
 
-            result.append(
-                {
-                    "dish_name": item.name,
-                    "price": item.price,
-                    "ingredients": item.get_ingredients,
-                    "restrictions": item.get_restrictions(),
-                }
-            )
+                result.append(
+                    {
+                        "dish_name": item.name,
+                        "price": item.price,
+                        "ingredients": item.get_ingredients(),
+                        "restrictions": item.get_restrictions(),
+                    }
+                )
+
+        # print("RESULT:", result)
         return result
 
 
-menu_builder1 = MenuBuilder()
-print(menu_builder1.get_main_menu("queijo mussarela"))
+if __name__ == "__main__":
+    menu_builder1 = MenuBuilder()
+    print(menu_builder1.get_main_menu("ANIMAL_MEAT"))
 
-# PArei no meio da implementação desse req. Cabeça nao aguenta mais
-# Pensar em como verificar se a restrição existe na receita
+    # PArei no meio da implementação desse req. Cabeça nao aguenta mais
+    # Pensar em como verificar se a restrição existe na receita

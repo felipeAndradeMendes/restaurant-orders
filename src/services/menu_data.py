@@ -1,23 +1,22 @@
 # Req 3
 import csv
+
+# from src.models.dish import Dish
+# from src.models.ingredient import Ingredient
+
+# usar sem testes
 from models.dish import Dish
 from models.ingredient import Ingredient
-
-
-# def get_dishes_from_csv(path: str):
-#     with open(path) as file:
-#         menu_database = csv.DictReader(file, delimiter=",")
-#         data = menu_database
-#         return data
 
 
 class MenuData:
     def __init__(self, source_path: str) -> None:
         self.dishes = set()
         self.__dish_names = {}
-
-        # print("SOURCE PATH:", source_path)
+        # usar sem testes
         with open(source_path, "r") as file:
+            # usar com testes
+            # with open('../' + source_path, "r") as file:
             menu_database = csv.DictReader(file, delimiter=",")
             data = menu_database
             # como retornar todas as linhas, sem pular a primeira?

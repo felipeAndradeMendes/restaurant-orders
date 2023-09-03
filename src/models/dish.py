@@ -56,4 +56,4 @@ if __name__ == "__main__":
     # print('entrei no dishes')
     # print(prato2.get_ingredients())
 
-    print(prato2.get_restrictions())
+    print(vars(prato2.get_restrictions()))
