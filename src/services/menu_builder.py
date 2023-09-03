@@ -1,19 +1,8 @@
 from typing import Dict, List
 
-# Original
 from services.inventory_control import InventoryMapping
 from services.menu_data import MenuData
 
-# from src.services.inventory_control import InventoryMapping
-# from src.services.menu_data import MenuData
-
-# from models.ingredient import Ingredient
-
-# usar com testes (ver se original estava assim mesmo)
-# DATA_PATH = "../data/menu_base_data.csv"
-# INVENTORY_PATH = "../data/inventory_base_data.csv"
-
-#  usar sem testes
 DATA_PATH = "../../data/menu_base_data.csv"
 INVENTORY_PATH = "../../data/inventory_base_data.csv"
 
@@ -46,12 +35,6 @@ class MenuBuilder:
                 item.recipe
             )
 
-            # print("GET RESTRICITONS:", item.get_restrictions())
-            # print('ITEM RESTRICTIONS:', Ingredient(restriction).restrictions)
-            # print("RESTRICITONS:", restriction)
-
-            # has_restriction = False
-
             if (
                 restriction not in item.get_restrictions()
                 or restriction is None
@@ -65,7 +48,6 @@ class MenuBuilder:
                     }
                 )
 
-        # print("RESULT:", result)
         return result
 
 

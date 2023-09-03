@@ -19,16 +19,12 @@ class MenuData:
             # with open("../" + source_path, "r") as file:
             menu_database = csv.DictReader(file, delimiter=",")
             data = menu_database
-            # como retornar todas as linhas, sem pular a primeira?
-            # o for estava fora do with open...
 
             for line in data:
                 name = line["dish"]
                 price = float(line["price"])
                 ingredient = line["ingredient"]
                 amount = int(line["recipe_amount"])
-                # print('INGREDIENT', ingredient)
-                # print('AMOUNT:', amount)
 
                 if name not in self.__dish_names:
                     self.__dish_names[name] = Dish(name, price)
