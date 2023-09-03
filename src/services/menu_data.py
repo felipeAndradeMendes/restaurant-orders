@@ -16,7 +16,7 @@ class MenuData:
         # usar sem testes
         with open(source_path, "r") as file:
             # usar com testes
-            # with open('../' + source_path, "r") as file:
+            # with open("../" + source_path, "r") as file:
             menu_database = csv.DictReader(file, delimiter=",")
             data = menu_database
             # como retornar todas as linhas, sem pular a primeira?

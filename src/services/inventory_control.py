@@ -5,7 +5,7 @@ from typing import Dict
 # from src.models.ingredient import Ingredient
 
 # usar sem testes
-from models.dish import Recipe
+from models.dish import Recipe, Dish
 from models.ingredient import Ingredient
 
 
@@ -34,10 +34,18 @@ class InventoryMapping:
 
     # Req 5.1
     def check_recipe_availability(self, recipe: Recipe) -> bool:
-        for ingredient, amount in recipe.items():
-            # print(self.inventory[ingredient])
-            if amount > self.inventory[ingredient]:
-                return False
+        try:
+            for ingredient, amount in recipe.items():
+                print("INVENTORY:", self.inventory.keys())
+                print("INGREDIENTE:", ingredient.name)
+                print("AMOUNT:", amount)
+                # if ingredient.name not in self.inventory.keys().name:
+                #     print('DEU RUIM!')
+                #     return False
+                if amount > self.inventory[ingredient]:
+                    return False
+        except KeyError:
+            return False
         return True
 
     # Req 5.2
@@ -50,17 +58,17 @@ class InventoryMapping:
             print("ingrediente amount:", self.inventory[ingredient])
 
 
-# if __name__ == "__main__":
-#     prato2 = Dish("Pastel de Bacon", 15.50)
+if __name__ == "__main__":
+    prato2 = Dish("Pastel de Bacon", 15.50)
 
-#     ing_bacon = Ingredient("bacon")
-#     ing_ovo = Ingredient("ovo")
-#     ing_farinha = Ingredient("farinha")
+    ing_bacon = Ingredient("bacon")
+    ing_ovo = Ingredient("ovo")
+    ing_farinha = Ingredient("farinha")
 
-#     prato2.add_ingredient_dependency(ing_ovo, 1)
-#     prato2.add_ingredient_dependency(ing_bacon, 2)
-#     prato2.add_ingredient_dependency(ing_farinha, 3)
+    prato2.add_ingredient_dependency(ing_ovo, 1)
+    prato2.add_ingredient_dependency(ing_bacon, 2)
+    prato2.add_ingredient_dependency(ing_farinha, 3)
 
-#     inv1 = InventoryMapping()
-#     print(inv1.check_recipe_availability(prato2.recipe))
-#     print(inv1.consume_recipe(prato2.recipe))
+    inv1 = InventoryMapping()
+    print(inv1.check_recipe_availability(prato2.recipe))
+    print(inv1.consume_recipe(prato2.recipe))

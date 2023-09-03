@@ -40,23 +40,22 @@ class MenuBuilder:
         result = []
 
         for item in self.menu_data.dishes:
-            print("GET RESTRICITONS:", item.get_restrictions())
+            print("ITEM:", type(item.recipe))
+
+            ingredient_available = self.inventory.check_recipe_availability(
+                item.recipe
+            )
+
+            # print("GET RESTRICITONS:", item.get_restrictions())
             # print('ITEM RESTRICTIONS:', Ingredient(restriction).restrictions)
-            print("RESTRICITONS:", restriction)
+            # print("RESTRICITONS:", restriction)
 
             # has_restriction = False
 
             if (
                 restriction not in item.get_restrictions()
                 or restriction is None
-            ):
-                # print(
-                #     "RESULTADO DE COMPARAÇÃO:",
-                #     Ingredient(restriction).restrictions
-                #     == item.get_restrictions(),
-                # )
-                # print(f"adicionando item {item} ao result")
-
+            ) and ingredient_available:
                 result.append(
                     {
                         "dish_name": item.name,
@@ -72,7 +71,5 @@ class MenuBuilder:
 
 # if __name__ == "__main__":
 #     menu_builder1 = MenuBuilder()
-#     print(menu_builder1.get_main_menu("ANIMAL_MEAT"))
-
-    # PArei no meio da implementação desse req. Cabeça nao aguenta mais
-    # Pensar em como verificar se a restrição existe na receita
+#     # print(menu_builder1.get_main_menu("ANIMAL_MEAT"))
+#     print(menu_builder1.get_main_menu())
