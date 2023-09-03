@@ -41,19 +41,20 @@ class Dish:
         return set(self.recipe.keys())
 
 
-if __name__ == "__main__":
-    # prato1 = Dish('Prato 01', 10.90)
-    prato2 = Dish('Pastel de Bacon', 15.50)
+# if __name__ == "__main__":
+# # prato1 = Dish('Prato 01', 10.90)
+# prato2 = Dish('Pastel de Bacon', 15.50)
 
-    ing_bacon = Ingredient('bacon')
-    ing_ovo = Ingredient('ovo')
-    ing_farinha = Ingredient('farinha')
+# ing_bacon = Ingredient('bacon')
+# ing_ovo = Ingredient('ovo')
+# ing_farinha = Ingredient('farinha')
 
-    prato2.add_ingredient_dependency(ing_ovo, 1)
-    prato2.add_ingredient_dependency(ing_bacon, 2)
-    prato2.add_ingredient_dependency(ing_farinha, 3)
+# prato2.add_ingredient_dependency(ing_ovo, 1)
+# prato2.add_ingredient_dependency(ing_bacon, 2)
+# prato2.add_ingredient_dependency(ing_farinha, 3)
 
-    # print('entrei no dishes')
-    # print(prato2.get_ingredients())
+# # print('entrei no dishes')
+# # print(prato2.get_ingredients())
 
-    print(vars(prato2.get_restrictions()))
+# # print(prato2.get_ingredients())
+# print(prato2.recipe[Ingredient('bacon')])

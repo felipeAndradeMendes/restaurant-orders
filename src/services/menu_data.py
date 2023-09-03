@@ -40,8 +40,7 @@ class MenuData:
 
 path1 = "../../tests/mocks/menu_base_data.csv"
 
-if __name__ == "__main__":
-    # print(vars(MenuData(path1).dishes))
-    menu1 = MenuData(path1)
+# if __name__ == "__main__":
+#     menu1 = MenuData(path1)
 
-    print(menu1.dishes)
+#     print(menu1.dishes)

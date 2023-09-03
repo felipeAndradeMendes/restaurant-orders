@@ -70,9 +70,9 @@ class MenuBuilder:
         return result
 
 
-if __name__ == "__main__":
-    menu_builder1 = MenuBuilder()
-    print(menu_builder1.get_main_menu("ANIMAL_MEAT"))
+# if __name__ == "__main__":
+#     menu_builder1 = MenuBuilder()
+#     print(menu_builder1.get_main_menu("ANIMAL_MEAT"))
 
     # PArei no meio da implementação desse req. Cabeça nao aguenta mais
     # Pensar em como verificar se a restrição existe na receita
